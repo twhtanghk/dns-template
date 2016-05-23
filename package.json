@@ -1,0 +1,19 @@
+{
+  "name": "dns-template",
+  "version": "0.0.1",
+  "description": "populate values from dns server to generate config file from defined template and execute defined action",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twhtanghk/dns-template.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twhtanghk/dns-template/issues"
+  },
+  "homepage": "https://github.com/twhtanghk/dns-template#readme"
+}
