@@ -1,5 +1,5 @@
 # dns-template
-Generating configuration files from defined template files and SRV record defined in DNS server or Consul.
+Generating configuration files from defined template and SRV record defined in DNS server or Consul.
 
 ## ECT Template
 Create directory (e.g. template/) and config file in [*.ect](http://ectjs.com) format
@@ -28,12 +28,12 @@ location /org/ {
 }
 ```
 
-## start docker image as below
+## Start docker image as below
 ```
 docker run -v ${PWD}/template:/usr/src/app/template --name config -d twhtanghk/dns-template
 ```
 
-## URL to trigger re-generating configuration files into 'template/dst' folder
+## Trigger re-generating configuration files
 * check IP of the running image
 ```
 docker inspect config
@@ -43,3 +43,5 @@ docker inspect config
 ```
 curl -X PUT http://172.17.0.2:1337/template/ect
 ```
+
+* check template/dst folder for the genrated config files
