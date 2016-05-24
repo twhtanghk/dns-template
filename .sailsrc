@@ -1,0 +1,13 @@
+{
+  "generators": {
+    "modules": {}
+  },
+  "hooks": {
+    "grunt": false,
+    "i18n": false,
+    "views": false,
+    "csrf": false,
+    "session": false,
+    "blueprints": false
+  }
+}

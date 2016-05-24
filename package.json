@@ -1,19 +1,25 @@
 {
   "name": "dns-template",
-  "version": "0.0.1",
-  "description": "populate values from dns server to generate config file from defined template and execute defined action",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "ect": "^0.5.9",
+    "include-all": "^0.1.6",
+    "sails": "~0.12.3",
+    "sails-hook-requestlogger-file": "^2.0.5"
   },
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js"
+  },
+  "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twhtanghk/dns-template.git"
+    "url": "git://github.com/anonymous node/sails user/dns-template.git"
   },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/twhtanghk/dns-template/issues"
-  },
-  "homepage": "https://github.com/twhtanghk/dns-template#readme"
+  "author": "anonymous node/sails user",
+  "license": ""
 }
