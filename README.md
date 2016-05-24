@@ -1,5 +1,5 @@
 # dns-template
-Generating configuration files from defined template and SRV record defined in DNS server or Consul.
+Generate configuration files from defined template and SRV record defined in DNS server or Consul.
 
 ## ECT Template
 Create directory (e.g. template/) and config file in [*.ect](http://ectjs.com) format
@@ -14,6 +14,7 @@ module.exports =
 ```
 
 * template/src/**/*.ect
+
 The following is to cache @[servivce name] into srv variable and reference the first service node srv[0].name and .port to generate the nginx config file.
 ```
 <% srv = @['oauth2.service.consul'] %>
@@ -33,15 +34,15 @@ location /org/ {
 docker run -v ${PWD}/template:/usr/src/app/template --name config -d twhtanghk/dns-template
 ```
 
-## Trigger re-generating configuration files
+## Trigger configuration files generation
 * check IP of the running image
 ```
 docker inspect config
 ```
 
-* trigger re-generating configuration files
+* trigger configuration files generation
 ```
-curl -X PUT http://172.17.0.2:1337/template/ect
+curl -X PUT http://container ip:1337/template/ect
 ```
 
-* check template/dst folder for the genrated config files
+* check template/dst folder for the generated config files
