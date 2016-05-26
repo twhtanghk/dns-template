@@ -2,7 +2,7 @@
 Generate configuration files from defined template and SRV record defined in DNS server or Consul.
 
 ## ECT Template
-Create directory (e.g. template/) and config file in [*.ect](http://ectjs.com) format
+Create directory (e.g. template/) and config file
 
 * template/config.coffee with dns server ip, service defined in DNS
 ```
@@ -13,7 +13,7 @@ module.exports =
   ]
 ```
 
-* template/src/**/*.ect
+* template/src/**/*.ect in [*.ect](http://ectjs.com) format
 
 The following is to cache @[servivce name] into srv variable and reference the first service node srv[0] IP to generate the nginx config file.
 ```
@@ -28,7 +28,7 @@ location /org/ {
 }
 ```
 
-## Start docker image as below
+## Start docker image
 ```
 docker run -v ${PWD}/template:/usr/src/app/template --name config -d twhtanghk/dns-template
 ```
