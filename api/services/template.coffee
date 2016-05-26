@@ -12,7 +12,7 @@ reload = ->
   dns.setServers [config.dns]
   Promise
     .all _.map config.service, (name) ->
-      dns.resolve name, 'SRV'
+      dns.resolve name
         .then (srv) ->
           config[name] = srv 
     .then ->

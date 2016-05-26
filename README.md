@@ -15,17 +15,16 @@ module.exports =
 
 * template/src/**/*.ect
 
-The following is to cache @[servivce name] into srv variable and reference the first service node srv[0].name and .port to generate the nginx config file.
+The following is to cache @[servivce name] into srv variable and reference the first service node srv[0] IP to generate the nginx config file.
 ```
 <% srv = @['oauth2.service.consul'] %>
 location /org/ {
-  proxy_pass http://<%- srv[0].name %>:<%- srv[0].port %>/;
+  proxy_pass http://<%- srv[0] %>:3000/;
   proxy_set_header Host $host;
   proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header X-Scheme $scheme;
-  proxy_connect_timeout 1;
-  proxy_send_timeout 30;
-  proxy_read_timeout 30;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Protocol $scheme;
+  proxy_set_header X-Forwarded-Host $host;
 }
 ```
 
@@ -35,14 +34,8 @@ docker run -v ${PWD}/template:/usr/src/app/template --name config -d twhtanghk/d
 ```
 
 ## Trigger configuration files generation
-* check IP of the running image
 ```
-docker inspect config
-```
-
-* trigger configuration files generation
-```
-curl -X PUT http://container ip:1337/template/ect
+curl -X PUT http://dns-template.service.consul:1337/template/ect
 ```
 
 * check template/dst folder for the generated config files
