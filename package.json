@@ -8,6 +8,7 @@
     "coffee-script": "^1.10.0",
     "ect": "^0.5.9",
     "include-all": "^0.1.6",
+    "require-reload": "^0.2.2",
     "sails": "~0.12.3",
     "sails-hook-requestlogger-file": "^2.0.5"
   },

@@ -8,7 +8,7 @@ dns.resolve = Promise.promisify dns.resolve
 glob = Promise.promisify require 'glob'
 
 reload = ->
-  config = require path.join '../..', sails.config.templateDir, 'config'
+  config = require('require-reload') path.join '../..', sails.config.templateDir, 'config'
   dns.setServers [config.dns]
   Promise
     .all _.map config.service, (name) ->
