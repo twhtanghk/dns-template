@@ -9,12 +9,14 @@ glob = Promise.promisify require 'glob'
 
 reload = ->
   config = require('require-reload') path.join '../..', sails.config.templateDir, 'config'
-  dns.setServers [config.dns]
   Promise
     .all _.map config.service, (name) ->
-      dns.resolve name
-        .then (srv) ->
-          config[name] = srv 
+      Promise
+        .all [dns.resolve(name, 'A'), dns.resolve(name, 'SRV')]
+        .then (res) ->
+          config[name] =
+            a: res[0]
+            srv: res[1]
     .then ->
       config
 

@@ -1,0 +1,4 @@
+<% mobile = @['mobile.service.consul'] %>
+location /mobile/ {
+  proxy_pass http://<%- mobile.srv[0].name %>:<%- mobile.srv[0].port %>/;
+}
